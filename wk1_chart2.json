@@ -1,21 +1,54 @@
- 
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text":"Real GDP Per Capita",
-    "subtitle": ["Current International USD, PPP", "Source: World Bank"]},
-
-  "width": 400,
-  "height": 300,
- 
-  "data": {"url": "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/1/s1_example_data/chart2_GDP_pc_6_countries.csv"},
- 
-  "mark": "line",
- 
+    "text": "GDP per capita",
+    "anchor": "start",
+    "subtitle": "2015 USD | Source: CSO (WB) through ECO API",
+    "fontSize": "14",
+    "subtitleFontSize": "12",
+    "color": "#000000",
+    "subtitleColor": "#000000"
+  },
+  "height": "250",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "background": "#ffffff",
+  "view": {
+    "fill": "#ffffff",
+    "strokeOpacity": 0
+  },
+  "data": {
+    "url": "https://api.economicsobservatory.com/ind/gdpp?vega",
+    "format": {
+      "type": "json"
+    }
+  },
+  "mark": {
+    "type": "line",
+    "color": "#f4134d",
+    "strokeWidth": "2"
+  },
   "encoding": {
-    "x": {"field": "Year", "type": "temporal", "title": null},
-    "y": {"field": "GDP pc", "type": "quantitative", "title": null},
-    "color": {"field": "Country Name", "type": "nominal"}
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": "Year",
+        "titleColor": "#122B39",
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "US Dollars (PPP Adjusted 2015)",
+        "titleColor": "#122B39",
+        "grid": false
+      }
+    }
   }
 }
