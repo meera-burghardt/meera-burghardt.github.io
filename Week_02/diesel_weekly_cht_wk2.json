@@ -1,0 +1,19 @@
+{"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "data": {
+       "url": "https://raw.githubusercontent.com/meera-burghardt/meera-burghardt.github.io/refs/heads/main/deisel_weekly.csv"},
+
+    "title": {"text": "US Diesel Prices 1994 to 2026 (weekly)"},
+
+    "width":300,
+    "height":300,
+
+    "mark":{"type": "line","color":"red"},
+ 
+    "encoding": {
+      "x": {"field": "date","type": "temporal", "axis": {
+        "title": "Year"}},
+      "y": {"field": "value","type": "quantitative", "axis": {
+        "title": "US Dollars per Gallon"}}
+    }
+}
