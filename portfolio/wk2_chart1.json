@@ -1,0 +1,237 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Productivity post-devolution shows mixed results at the national level:",
+    "subtitle": "Productivity in Scotland and Northern Ireland rise while England and Wales stagnate",
+    "anchor": "start"
+  },
+  "data": {
+    "url": "nations_productivity.csv"
+  },
+  "width": 530,
+  "height": 360,
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#888"
+      },
+      "encoding": {
+        "y": {
+          "datum": 100,
+          "scale": {
+            "domain": [
+              80,
+              105
+            ],
+            "zero": false
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2004,
+            "index": 100,
+            "lab": "UK average = 100"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 4,
+        "dy": -3,
+        "color": "#666"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              2004,
+              2023
+            ],
+            "zero": false,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "index",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              80,
+              105
+            ],
+            "zero": false
+          }
+        },
+        "text": {
+          "field": "lab"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              2004,
+              2023
+            ],
+            "zero": false,
+            "nice": false
+          },
+          "axis": {
+            "title": null,
+            "format": "d",
+            "grid": false,
+            "tickCount": 6
+          }
+        },
+        "y": {
+          "field": "index",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              80,
+              105
+            ],
+            "zero": false
+          },
+          "axis": {
+            "title": "Productivity index (UK = 100)",
+            "grid": false
+          }
+        },
+        "color": {
+          "field": "area",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "England excl. London",
+              "Scotland",
+              "Northern Ireland",
+              "Wales"
+            ],
+            "range": [
+              "#555555",
+              "#0072B2",
+              "#009E73",
+              "#D55E00"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontWeight": "bold"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2023"
+        },
+        {
+          "calculate": "datum.area == 'England excl. London' ? 'England excl. London' : datum.area",
+          "as": "lab"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              2004,
+              2023
+            ],
+            "zero": false,
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "index",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              80,
+              105
+            ],
+            "zero": false
+          }
+        },
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "field": "area",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "England excl. London",
+              "Scotland",
+              "Northern Ireland",
+              "Wales"
+            ],
+            "range": [
+              "#555555",
+              "#0072B2",
+              "#009E73",
+              "#D55E00"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "padding": {
+      "right": 5,
+      "left": 5,
+      "top": 5,
+      "bottom": 5
+    },
+    "font": "Helvetica Neue, Helvetica, Arial, sans-serif",
+    "title": {
+      "fontSize": 17,
+      "fontWeight": 600,
+      "color": "#333",
+      "subtitleFontSize": 13,
+      "subtitleColor": "#555",
+      "subtitleFontWeight": "normal"
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#333",
+      "titleColor": "#333"
+    },
+    "text": {
+      "fontSize": 12
+    }
+  }
+}

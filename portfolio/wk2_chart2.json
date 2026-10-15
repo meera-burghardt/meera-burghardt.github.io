@@ -1,0 +1,215 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Regional authorities within England see concentrated growth",
+    "subtitle": "Manchester and West Yorkshire boom while Midlands and South Yorkshire fall",
+    "anchor": "start"
+  },
+  "data": {
+    "url": "combined_authorities.csv"
+  },
+  "width": 480,
+  "height": {
+    "step": 34
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Greater Manchester",
+            "West Yorkshire",
+            "England excl. London",
+            "Liverpool City Region",
+            "West Midlands",
+            "South Yorkshire",
+            "Tees Valley"
+          ],
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelLimit": 200
+          }
+        },
+        "x": {
+          "field": "change",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -7,
+              5
+            ]
+          },
+          "axis": {
+            "title": "Change in index points, 2013 to 2023",
+            "grid": false
+          }
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "combined authority",
+              "benchmark"
+            ],
+            "range": [
+              "#0072B2",
+              "#999999"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.change >= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Greater Manchester",
+            "West Yorkshire",
+            "England excl. London",
+            "Liverpool City Region",
+            "West Midlands",
+            "South Yorkshire",
+            "Tees Valley"
+          ],
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelLimit": 200
+          }
+        },
+        "x": {
+          "field": "change",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -7,
+              5
+            ]
+          }
+        },
+        "text": {
+          "field": "change",
+          "type": "quantitative",
+          "format": "+.1f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.change < 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -4
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Greater Manchester",
+            "West Yorkshire",
+            "England excl. London",
+            "Liverpool City Region",
+            "West Midlands",
+            "South Yorkshire",
+            "Tees Valley"
+          ],
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelLimit": 200
+          }
+        },
+        "x": {
+          "field": "change",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -7,
+              5
+            ]
+          }
+        },
+        "text": {
+          "field": "change",
+          "type": "quantitative",
+          "format": "+.1f"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#000"
+      },
+      "encoding": {
+        "x": {
+          "datum": 0,
+          "scale": {
+            "domain": [
+              -7,
+              5
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "padding": {
+      "right": 5,
+      "left": 5,
+      "top": 5,
+      "bottom": 5
+    },
+    "font": "Helvetica Neue, Helvetica, Arial, sans-serif",
+    "title": {
+      "fontSize": 17,
+      "fontWeight": 600,
+      "color": "#333",
+      "subtitleFontSize": 13,
+      "subtitleColor": "#555",
+      "subtitleFontWeight": "normal"
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#333",
+      "titleColor": "#333",
+      "labelLimit": 320
+    },
+    "text": {
+      "fontSize": 12
+    }
+  }
+}
