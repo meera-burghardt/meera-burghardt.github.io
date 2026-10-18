@@ -1,183 +1,399 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Regional authorities within England see concentrated growth",
-    "subtitle": "Manchester and West Yorkshire boom while Midlands and South Yorkshire fall",
+    "text": "ADD YOUR TITLE",
+    "subtitle": "ADD SUBTITLE: average annual real GDP per head growth (%), 1998-2016 vs 2016-2023, source (ONS)",
     "anchor": "start"
   },
   "data": {
-    "url": "combined_authorities.csv"
+    "url": "mayoral_growth.csv"
   },
-  "width": 480,
+  "width": 460,
   "height": {
-    "step": 34
+    "step": 28
   },
   "layer": [
     {
       "mark": {
-        "type": "bar"
-      },
-      "encoding": {
-        "y": {
-          "field": "area",
-          "type": "nominal",
-          "sort": [
-            "Greater Manchester",
-            "West Yorkshire",
-            "England excl. London",
-            "Liverpool City Region",
-            "West Midlands",
-            "South Yorkshire",
-            "Tees Valley"
-          ],
-          "axis": {
-            "title": null,
-            "ticks": false,
-            "domain": false,
-            "labelLimit": 200
-          }
-        },
-        "x": {
-          "field": "change",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -7,
-              5
-            ]
-          },
-          "axis": {
-            "title": "Change in index points, 2013 to 2023",
-            "grid": false
-          }
-        },
-        "color": {
-          "field": "type",
-          "type": "nominal",
-          "legend": null,
-          "scale": {
-            "domain": [
-              "combined authority",
-              "benchmark"
-            ],
-            "range": [
-              "#0072B2",
-              "#999999"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.change >= 0"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 4
-      },
-      "encoding": {
-        "y": {
-          "field": "area",
-          "type": "nominal",
-          "sort": [
-            "Greater Manchester",
-            "West Yorkshire",
-            "England excl. London",
-            "Liverpool City Region",
-            "West Midlands",
-            "South Yorkshire",
-            "Tees Valley"
-          ],
-          "axis": {
-            "title": null,
-            "ticks": false,
-            "domain": false,
-            "labelLimit": 200
-          }
-        },
-        "x": {
-          "field": "change",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -7,
-              5
-            ]
-          }
-        },
-        "text": {
-          "field": "change",
-          "type": "quantitative",
-          "format": "+.1f"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.change < 0"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "dx": -4
-      },
-      "encoding": {
-        "y": {
-          "field": "area",
-          "type": "nominal",
-          "sort": [
-            "Greater Manchester",
-            "West Yorkshire",
-            "England excl. London",
-            "Liverpool City Region",
-            "West Midlands",
-            "South Yorkshire",
-            "Tees Valley"
-          ],
-          "axis": {
-            "title": null,
-            "ticks": false,
-            "domain": false,
-            "labelLimit": 200
-          }
-        },
-        "x": {
-          "field": "change",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -7,
-              5
-            ]
-          }
-        },
-        "text": {
-          "field": "change",
-          "type": "quantitative",
-          "format": "+.1f"
-        }
-      }
-    },
-    {
-      "mark": {
         "type": "rule",
-        "color": "#000"
+        "color": "#666"
       },
       "encoding": {
         "x": {
           "datum": 0,
           "scale": {
             "domain": [
-              -7,
-              5
+              -1,
+              3
             ]
           }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "k": "\u25cb 1998 to 2016    \u25b6 \u25c0 2016 to 2023    \u25b2 \u25bc growth faster / slower after"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dy": -30,
+        "fontSize": 11,
+        "color": "#666"
+      },
+      "encoding": {
+        "y": {
+          "datum": "Six mayoral areas (pooled)",
+          "type": "nominal",
+          "sort": [
+            "Six mayoral areas (pooled)",
+            "South Yorkshire",
+            "Greater Manchester",
+            "West Yorkshire",
+            "Liverpool City Region",
+            "West Midlands",
+            "Tees Valley",
+            "Rest of England, no mayor (pooled)",
+            "County Durham",
+            "Cornwall",
+            "North Yorkshire",
+            "Buckinghamshire",
+            "West Northamptonshire",
+            "Cheshire East"
+          ]
+        },
+        "x": {
+          "datum": 3,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1,
+              3
+            ]
+          }
+        },
+        "text": {
+          "field": "k"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2.5,
+        "opacity": 0.85
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Six mayoral areas (pooled)",
+            "South Yorkshire",
+            "Greater Manchester",
+            "West Yorkshire",
+            "Liverpool City Region",
+            "West Midlands",
+            "Tees Valley",
+            "Rest of England, no mayor (pooled)",
+            "County Durham",
+            "Cornwall",
+            "North Yorkshire",
+            "Buckinghamshire",
+            "West Northamptonshire",
+            "Cheshire East"
+          ],
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelLimit": 260,
+            "grid": true,
+            "gridColor": "#ececec",
+            "labelFontWeight": {
+              "condition": {
+                "test": "indexof(['Six mayoral areas (pooled)','Rest of England, no mayor (pooled)'], datum.label) >= 0",
+                "value": 700
+              },
+              "value": 400
+            }
+          }
+        },
+        "x": {
+          "field": "growth_pre",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1,
+              3
+            ]
+          },
+          "axis": {
+            "title": "Average annual growth in real GDP per head (%)",
+            "grid": false
+          }
+        },
+        "x2": {
+          "field": "growth_post"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Mayoral combined authority",
+              "No mayor"
+            ],
+            "range": [
+              "#0072B2",
+              "#888888"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "symbolType": "stroke",
+            "offset": 26
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "strokeWidth": 2,
+        "fill": "white"
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Six mayoral areas (pooled)",
+            "South Yorkshire",
+            "Greater Manchester",
+            "West Yorkshire",
+            "Liverpool City Region",
+            "West Midlands",
+            "Tees Valley",
+            "Rest of England, no mayor (pooled)",
+            "County Durham",
+            "Cornwall",
+            "North Yorkshire",
+            "Buckinghamshire",
+            "West Northamptonshire",
+            "Cheshire East"
+          ],
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelLimit": 260,
+            "grid": true,
+            "gridColor": "#ececec",
+            "labelFontWeight": {
+              "condition": {
+                "test": "indexof(['Six mayoral areas (pooled)','Rest of England, no mayor (pooled)'], datum.label) >= 0",
+                "value": 700
+              },
+              "value": 400
+            }
+          }
+        },
+        "x": {
+          "field": "growth_pre",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1,
+              3
+            ]
+          }
+        },
+        "stroke": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Mayoral combined authority",
+              "No mayor"
+            ],
+            "range": [
+              "#0072B2",
+              "#888888"
+            ]
+          },
+          "legend": null
+        },
+        "size": {
+          "condition": {
+            "test": "datum.pooled == 1",
+            "value": 150
+          },
+          "value": 80
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Six mayoral areas (pooled)",
+            "South Yorkshire",
+            "Greater Manchester",
+            "West Yorkshire",
+            "Liverpool City Region",
+            "West Midlands",
+            "Tees Valley",
+            "Rest of England, no mayor (pooled)",
+            "County Durham",
+            "Cornwall",
+            "North Yorkshire",
+            "Buckinghamshire",
+            "West Northamptonshire",
+            "Cheshire East"
+          ],
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelLimit": 260,
+            "grid": true,
+            "gridColor": "#ececec",
+            "labelFontWeight": {
+              "condition": {
+                "test": "indexof(['Six mayoral areas (pooled)','Rest of England, no mayor (pooled)'], datum.label) >= 0",
+                "value": 700
+              },
+              "value": 400
+            }
+          }
+        },
+        "x": {
+          "field": "growth_post",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1,
+              3
+            ]
+          }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Mayoral combined authority",
+              "No mayor"
+            ],
+            "range": [
+              "#0072B2",
+              "#888888"
+            ]
+          },
+          "legend": null
+        },
+        "shape": {
+          "condition": {
+            "test": "datum.change >= 0",
+            "value": "triangle-right"
+          },
+          "value": "triangle-left"
+        },
+        "size": {
+          "condition": {
+            "test": "datum.pooled == 1",
+            "value": 220
+          },
+          "value": 130
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "max(datum.growth_pre, datum.growth_post)",
+          "as": "xmax"
+        },
+        {
+          "calculate": "(datum.change >= 0 ? '\u25b2 ' : '\u25bc ') + format(datum.change, '+.1f')",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Six mayoral areas (pooled)",
+            "South Yorkshire",
+            "Greater Manchester",
+            "West Yorkshire",
+            "Liverpool City Region",
+            "West Midlands",
+            "Tees Valley",
+            "Rest of England, no mayor (pooled)",
+            "County Durham",
+            "Cornwall",
+            "North Yorkshire",
+            "Buckinghamshire",
+            "West Northamptonshire",
+            "Cheshire East"
+          ],
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "labelLimit": 260,
+            "grid": true,
+            "gridColor": "#ececec",
+            "labelFontWeight": {
+              "condition": {
+                "test": "indexof(['Six mayoral areas (pooled)','Rest of England, no mayor (pooled)'], datum.label) >= 0",
+                "value": 700
+              },
+              "value": 400
+            }
+          }
+        },
+        "x": {
+          "field": "xmax",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -1,
+              3
+            ]
+          }
+        },
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.change >= 0",
+            "value": "#00785C"
+          },
+          "value": "#C4410C"
         }
       }
     }
@@ -192,7 +408,7 @@
       "top": 5,
       "bottom": 5
     },
-    "font": "Helvetica Neue, Helvetica, Arial, sans-serif",
+    "font": "Avenir Next, Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
     "title": {
       "fontSize": 17,
       "fontWeight": 600,
@@ -206,7 +422,11 @@
       "titleFontSize": 12,
       "labelColor": "#333",
       "titleColor": "#333",
-      "labelLimit": 320
+      "domainColor": "#999",
+      "tickColor": "#999"
+    },
+    "legend": {
+      "labelFontSize": 12
     },
     "text": {
       "fontSize": 12

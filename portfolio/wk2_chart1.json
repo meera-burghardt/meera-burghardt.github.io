@@ -1,17 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Productivity post-devolution shows mixed results at the national level:",
-    "subtitle": "Productivity in Scotland and Northern Ireland rise while England and Wales stagnate",
+    "text": "ADD YOUR TITLE",
+    "subtitle": "ADD SUBTITLE: real GDP per head, 1998 = 100, source (ONS)",
     "anchor": "start"
   },
   "data": {
-    "url": "nations_productivity.csv"
+    "url": "nations_gdp.csv"
   },
-  "width": 530,
-  "height": 360,
+  "width": 580,
+  "height": 340,
   "layer": [
     {
+      "data": {
+        "values": [
+          {
+            "year": 1999
+          }
+        ]
+      },
       "mark": {
         "type": "rule",
         "strokeDash": [
@@ -21,14 +28,16 @@
         "color": "#888"
       },
       "encoding": {
-        "y": {
-          "datum": 100,
+        "x": {
+          "field": "year",
+          "type": "quantitative",
           "scale": {
             "domain": [
-              80,
-              105
+              1998,
+              2024
             ],
-            "zero": false
+            "zero": false,
+            "nice": false
           }
         }
       }
@@ -37,18 +46,17 @@
       "data": {
         "values": [
           {
-            "year": 2004,
-            "index": 100,
-            "lab": "UK average = 100"
+            "year": 1999,
+            "y": 140,
+            "lab": "1999: devolution"
           }
         ]
       },
       "mark": {
         "type": "text",
         "align": "left",
-        "baseline": "bottom",
-        "dx": 4,
-        "dy": -3,
+        "baseline": "top",
+        "dx": 5,
         "color": "#666"
       },
       "encoding": {
@@ -57,20 +65,20 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              2004,
-              2023
+              1998,
+              2024
             ],
             "zero": false,
             "nice": false
           }
         },
         "y": {
-          "field": "index",
+          "field": "y",
           "type": "quantitative",
           "scale": {
             "domain": [
-              80,
-              105
+              98,
+              140
             ],
             "zero": false
           }
@@ -91,8 +99,8 @@
           "type": "quantitative",
           "scale": {
             "domain": [
-              2004,
-              2023
+              1998,
+              2024
             ],
             "zero": false,
             "nice": false
@@ -105,17 +113,17 @@
           }
         },
         "y": {
-          "field": "index",
+          "field": "index_1998",
           "type": "quantitative",
           "scale": {
             "domain": [
-              80,
-              105
+              98,
+              140
             ],
             "zero": false
           },
           "axis": {
-            "title": "Productivity index (UK = 100)",
+            "title": "Real GDP per head (1998 = 100)",
             "grid": false
           }
         },
@@ -125,57 +133,76 @@
           "legend": null,
           "scale": {
             "domain": [
-              "England excl. London",
               "Scotland",
+              "Wales",
               "Northern Ireland",
-              "Wales"
+              "England excl. London"
             ],
             "range": [
-              "#555555",
               "#0072B2",
+              "#D55E00",
               "#009E73",
-              "#D55E00"
+              "#555555"
             ]
           }
         }
       }
     },
     {
+      "data": {
+        "values": [
+          {
+            "area": "Scotland",
+            "year": 2024,
+            "ylab": 136.6,
+            "lab": "Scotland"
+          },
+          {
+            "area": "Wales",
+            "year": 2024,
+            "ylab": 133.6,
+            "lab": "Wales"
+          },
+          {
+            "area": "Northern Ireland",
+            "year": 2024,
+            "ylab": 131.4,
+            "lab": "Northern Ireland"
+          },
+          {
+            "area": "England excl. London",
+            "year": 2024,
+            "ylab": 129.2,
+            "lab": "England excl. London"
+          }
+        ]
+      },
       "mark": {
         "type": "text",
         "align": "left",
         "dx": 6,
         "fontWeight": "bold"
       },
-      "transform": [
-        {
-          "filter": "datum.year == 2023"
-        },
-        {
-          "calculate": "datum.area == 'England excl. London' ? 'England excl. London' : datum.area",
-          "as": "lab"
-        }
-      ],
       "encoding": {
         "x": {
           "field": "year",
           "type": "quantitative",
           "scale": {
             "domain": [
-              2004,
-              2023
+              1998,
+              2024
             ],
             "zero": false,
             "nice": false
           }
         },
         "y": {
-          "field": "index",
+          "field": "ylab",
           "type": "quantitative",
           "scale": {
             "domain": [
-              80,
-              105
+              98,
+              140
             ],
             "zero": false
           }
@@ -189,16 +216,16 @@
           "legend": null,
           "scale": {
             "domain": [
-              "England excl. London",
               "Scotland",
+              "Wales",
               "Northern Ireland",
-              "Wales"
+              "England excl. London"
             ],
             "range": [
-              "#555555",
               "#0072B2",
+              "#D55E00",
               "#009E73",
-              "#D55E00"
+              "#555555"
             ]
           }
         }
@@ -215,7 +242,7 @@
       "top": 5,
       "bottom": 5
     },
-    "font": "Helvetica Neue, Helvetica, Arial, sans-serif",
+    "font": "Avenir Next, Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
     "title": {
       "fontSize": 17,
       "fontWeight": 600,
@@ -228,7 +255,12 @@
       "labelFontSize": 12,
       "titleFontSize": 12,
       "labelColor": "#333",
-      "titleColor": "#333"
+      "titleColor": "#333",
+      "domainColor": "#999",
+      "tickColor": "#999"
+    },
+    "legend": {
+      "labelFontSize": 12
     },
     "text": {
       "fontSize": 12

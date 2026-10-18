@@ -33,17 +33,28 @@
             href="https://www.github.com/meera-burghardt">GitHub</a>
     </p>
     <h3 class="small">
-        This page is my portfolio for PP434 course where I will put all of my weekly assignments.
+        Welcome to my PP434 portfolio. Here I have all 10 of my CC (coding challenges), arranged chronologically.
     </h3>
 
+    <section>
+        <div class="chart-description">
+            <h2>CC1: Displaying charts in your own site</h2>
+            <h3>Inflation in 4 G7 Countries</h3>
+        </div>
+        <figure id="Location5"></figure>
+        <h3>CO2 Greenhouse Gas Emissions broken down by Food Type</h3>
+        </div>
+        <figure id="Location6"></figure>
+    </section>
+
     <!-- Each section holds a title, a description and a chart. -->
-    <!-- Every <figure> needs its OWN id, and the script at the bottom uses that id to place the chart. -->
+    <!-- Every chart needs its OWN id, and the script at the bottom uses that id to place the chart. -->
 
     <!-- WEEK 1 -->
     <section>
         <div class="chart-description">
-            <h2>Week 1</h2>
-            <h3>Chart 1</h3>
+            <h2>CC2: Creating your own visualisations</h2>
+            <h3>Chart 1: Imports in the DRC</h3>
             <p>
                 Here is the first graph I made from the Economics Observatory which tracks imports in real US dollars from 1994 to 2022 in the DR Congo.
                 As you can see there is large variation in exports over time, most likely due to instability and conflict.
@@ -54,7 +65,7 @@
 
     <section>
         <div class="chart-description">
-            <h3>Chart 2</h3>
+            <h3>Chart 2: GDP in India</h3>
             <p>
                 Here is the second graph that I made on the economics observatory website. It shows GDP per capita in India from 1960 to 2022.
                 As you can see there is a steady increase in GDP per capita, which is slightly suprising given India's growing population.
@@ -63,58 +74,31 @@
         <figure id="Location2"></figure>
     </section>
 
-    <!-- WEEK 2 -->
+    <!-- CC3: POLICY DEBATE -->
     <section>
         <div class="chart-description">
-            <h2>Week 2</h2>
-            <h3>Policy Topic: Devolution and Productivity within the UK</h3>
-            <p>Devolution in the United Kingdom can be defined as the transfer of power from the national UK parliament to 
-                lower level governments. In England, this means more power granted to local and combined authorities, while 
-                in Scotland, Wales, and Northern Ireland this entails transfer to national assemblies and parliaments. 
-            </p>
-            <p>
-                In 1998, Scotland, Wales, and Northern Ireland all devolved from the UK parliament, and since have been given
-                broader legislative powers in relation to health, education, social welfare, and environmental policies. 
-                On the other hand, England does not have a unitary national devolved parliament, but rather a subset of 
-                combined authorities and directly elected mayors who have a say over housing, skills, and transport.
-            </p>
-            <p>
-                As the productivity levels in the UK have been stagnant over the last decade, the question arose of whether 
-                devolution could help stimulate productivity levels. In the subsequent analysis, I will analyze how devolution 
-                moves alongside productivity at the national, subnational, and regional levels over the last two decades within
-                the UK.
-            </p>
+            <h2>CC3: Policy debate</h2>
+            <h3>Policy topic</h3>
+            <p>[Your policy topic: 25 words maximum]</p>
         </div>
-        <h3>Chart 1: National Level Productivity</h3>
-        <figure>
-            <div id="Location3"></div>
-            <figcaption>Source (ONS), Units (index, UK = 100)</figcaption>
-        </figure>
-        
-        <figure>
-            <h3>Chart 2: Regional Level Productivity Change</h3>
-            <div id="Location4"></div>
-            <figcaption>Source (ONS), Change in productivity index points (UK = 100), 2013 to 2023</figcaption>
-        </figure>
 
-        <h3>Policy Implications</h3>
-            <p>
-                These charts analyze the association between productivity and devolution. As you can see in the first chart, Scotland 
-                Northern Ireland saw increases in productivity per hour relative to the UK average since 2004. The figure shows Scotland 
-                Northern Ireland on a positive trend from around 2010 onwards. On the other hand, Wales looks relatively stagnant at its 
-                2004 productivity levels, while England excluding London declines throughout the past two decades. The result is a mixed 
-                picture: Scotland and Northern Ireland (two countries which devolved in 1999) saw increases in their productivity post 2010.
-                while Wales and England (excluding London) remain relatively constant at their early 2000s levels. While this doesn't directly 
-                prove devolution increases productivity, it does show that, following devolution, two out of the four UK countries experienced
-                increases in productivity relative to the national average.
-            </p>
+        <div class="chart-description">
+            <h3>[Chart 1 heading]</h3>
+            <figure>
+                <div id="Location3"></div>
+                <figcaption>[Source and notes for chart 1]</figcaption>
+            </figure>
+            <p>[Your comment on chart 1: 25 words maximum]</p>
+        </div>
 
-            <p>
-                Looking at the second chart, which breaks down this trend at the regional level, the results are mixed. Within the UK, 
-                some regions have seen increases in productivity while others have seen decreases. Further areas of research would be to 
-                analyze difference in productivity before and after devolution in English regions vs Scottish, Welsh, or Northern Irish
-                ones. 
-            </p>
+        <div class="chart-description">
+            <h3>[Chart 2 heading]</h3>
+            <figure>
+                <div id="Location4"></div>
+                <figcaption>[Source and notes for chart 2]</figcaption>
+            </figure>
+            <p>[Your comment on chart 2: 25 words maximum]</p>
+        </div>
     </section>
 
     <!-- One script at the bottom puts every chart on the page. -->
@@ -122,10 +106,14 @@
     <!-- .catch(console.error) makes any problem show up in the browser console (Cmd+Option+J). -->
     <script>
         // Week 1
+        vegaEmbed('#Location5', 'wk1_chart3.json').catch(console.error);
+        vegaEmbed('#Location6', 'wk1_chart4.json').catch(console.error);
+
         vegaEmbed('#Location1', 'wk1_chart1.json').catch(console.error);
         vegaEmbed('#Location2', 'wk1_chart2.json').catch(console.error);
 
-        // Week 2
+        // CC3
+        // CC3
         vegaEmbed('#Location3', 'wk2_chart1.json').catch(console.error);
         vegaEmbed('#Location4', 'wk2_chart2.json').catch(console.error);
     </script>
