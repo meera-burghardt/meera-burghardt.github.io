@@ -1,33 +1,35 @@
-/* This is an example CSS file. If you include it in your portfolio, it'll provide some clean and basic styling */
-/* for your page. Feel free to experiment with the values, or copy them into a new file and use that instead. */
+/* The font import must be the very first line of the file, or the browser ignores it. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Caslon+Text:wght@400;700&display=swap');
 
-/* These are comments in CSS. Comments don't do anything except explain your working to make code easier to understand. */
+/* Colours in one place: change them here and they update everywhere */
+:root {
+  --page-bg: #FFF1E5;   /* FT-style pink paper */
+  --text: #33302E;
+  --muted: #66605C;
+  --link: #065f46;
+}
 
-
-body { /* We can style any HTML element by using its name - here we're styling the body */
-  /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
-  color: #333;
+  color: var(--text);
   line-height: 1.6;
-  /* we want a white page, that's centered and not too wide */
-  background-color: #fff;
-  margin:0 auto;
-  max-width: 800px;
+  background-color: var(--page-bg);
+  margin: 0 auto;
+  max-width: 1000px;      /* page width: raise or lower to taste */
   padding-top: 60px;
 }
 
-
-/* Headings */
+/* Headings use the serif */
 h1, h2, h3, h4, h5, h6 {
-  color: #333;
+  font-family: 'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+  color: var(--text);
   margin-top: 24px;
   margin-bottom: 16px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* We want the headings to be a little bigger than the paragraph text */
-.big { /* This is the class we created in the HTML file, you can use it to style any element */
+.big {
   font-size: 2.5em;
 }
 
@@ -39,29 +41,42 @@ h2 {
   font-size: 1.25em;
 }
 
-/* Paragraph */
 p {
   margin-bottom: 1em;
   font-weight: 300;
 }
 
 section {
-  margin-bottom: 2.5em;  /* We want a little more space between sections */
+  margin-bottom: 2.5em;
 }
 
-/* Links */
-/* We want the links to be a little more visible  and a different color */
 a {
-  color: #065f46;
+  color: var(--link);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
-  
-/* Images */
+
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Charts sit on white cards */
+figure {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin: 24px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+
+/* Small grey source notes under each chart */
+figcaption {
+  font-size: 0.85em;
+  color: var(--muted);
+  margin-top: 4px;
 }

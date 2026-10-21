@@ -1,15 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "ADD YOUR TITLE",
-    "subtitle": "ADD SUBTITLE: real GDP per head, 1998 = 100, source (ONS)",
+    "text": "Following devolution in 1999, Scotland and Wales lead UK national growth",
+    "subtitle": "Real GDP per head, 1998 = 100",
     "anchor": "start"
   },
   "data": {
     "url": "nations_gdp.csv"
   },
-  "width": 580,
-  "height": 340,
+  "width": 600,
+  "height": 300,
   "layer": [
     {
       "data": {
@@ -242,15 +242,15 @@
       "top": 5,
       "bottom": 5
     },
-    "font": "Avenir Next, Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
+    "font": "Inter, Helvetica Neue, Helvetica, Arial, sans-serif",
     "title": {
-      "fontSize": 17,
-      "fontWeight": 600,
-      "color": "#333",
-      "subtitleFontSize": 13,
-      "subtitleColor": "#555",
-      "subtitleFontWeight": "normal"
-    },
+      "font": "Libre Caslon Text, Georgia, serif", 
+      "fontSize": 17, 
+      "fontWeight": 700, 
+      "color": "#33302E", 
+      "subtitleFontSize": 13, 
+      "subtitleColor": "#66605C", 
+      "subtitleFontWeight": "normal"},
     "axis": {
       "labelFontSize": 12,
       "titleFontSize": 12,

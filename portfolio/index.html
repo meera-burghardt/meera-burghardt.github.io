@@ -78,26 +78,47 @@
     <section>
         <div class="chart-description">
             <h2>CC3: Policy debate</h2>
-            <h3>Policy topic</h3>
-            <p>[Your policy topic: 25 words maximum]</p>
+            <h3>Devolution in the UK</h3>
+            <p>Devolution in the UK is the transfer of power from the central UK parliament to national parliaments 
+                and assemblies in Scotland, Wales, and Northern Ireland, and regional authorities in England. 
+                Following the UK's stagnant growth over the past decade, Scotland, Wales, and Northern Ireland all 
+                passed devolution legislation in 1999, while certain local authorities England still remain under 
+                the centralized UK Parliament. One argument for devolution was to stimulate productivity to help 
+                stimulate economic growth, the next two charts will be evaluating the evidence for that claim.
+            </p>
         </div>
 
         <div class="chart-description">
-            <h3>[Chart 1 heading]</h3>
+            <h3>Devolution at the National Level</h3>
             <figure>
                 <div id="Location3"></div>
-                <figcaption>[Source and notes for chart 1]</figcaption>
+                <figcaption>Source: ONS</figcaption>
             </figure>
-            <p>[Your comment on chart 1: 25 words maximum]</p>
+            <p>Relative to their 1998 levels, Scotland and Wales have accelerated past England and Northern Ireland. this
+                shows a mixed picture of devolution, in certain areas (Scotland and Wales) devolution was followed by
+                increased growth, while in Northern Ireland growth appeared to be relatively stagnant relative to the 
+                other nations. In England excluding London, the main areas which haven't devolved, growth has been lower
+                compared to the other nations. This chart somewhat supports the devolution narrative.
+            </p>
         </div>
 
         <div class="chart-description">
-            <h3>[Chart 2 heading]</h3>
+            <h3>Devolution at the Local Authority Level</h3>
             <figure>
                 <div id="Location4"></div>
-                <figcaption>[Source and notes for chart 2]</figcaption>
+                <figcaption>Source: ONS</figcaption>
             </figure>
-            <p>[Your comment on chart 2: 25 words maximum]</p>
+            <p>The chart compares productivity changes from 2004 to 2023 in six local authorities in England that have devolved 
+                from the central UK parliament to local authorities and six local authorities that still fall fully under the 
+                jurisdiction of the UK parliament. The chart shows that non-devolved regions have more variance in their 
+                initial productivity levels and productivity growth with some areas like West Northamptonshire showing a 76%
+                increase in productivity levels from a modest start, while Buckinghamshire ending in 39£ per hour, highest out 
+                of the non-devolved regions but starting from a relatively high initial productivity level. On the bottom
+                half of the chart, the six devolved regions appear to show more consistent patterns, all starting from around 23£
+                per hour and increasing by about 15 over the past two decades. This chart supports the devolution narrative,
+                as we see more consistent and stronger growth in productivity levels post devolution in the bottom six mayoral 
+                areas compared to the top six.
+            </p>
         </div>
     </section>
 
@@ -109,13 +130,12 @@
         vegaEmbed('#Location5', 'wk1_chart3.json').catch(console.error);
         vegaEmbed('#Location6', 'wk1_chart4.json').catch(console.error);
 
-        vegaEmbed('#Location1', 'wk1_chart1.json').catch(console.error);
-        vegaEmbed('#Location2', 'wk1_chart2.json').catch(console.error);
-
-        // CC3
-        // CC3
-        vegaEmbed('#Location3', 'wk2_chart1.json').catch(console.error);
-        vegaEmbed('#Location4', 'wk2_chart2.json').catch(console.error);
+        document.fonts.ready.then(() => {
+        vegaEmbed('#Location1', 'wk1_chart1.json', {renderer: 'svg'}).catch(console.error);
+        vegaEmbed('#Location2', 'wk1_chart2.json', {renderer: 'svg'}).catch(console.error);
+        vegaEmbed('#Location3', 'wk2_chart1.json', {renderer: 'svg'}).catch(console.error);
+        vegaEmbed('#Location4', 'wk2_chart2.json', {renderer: 'svg'}).catch(console.error);
+    });
     </script>
 
 </body>

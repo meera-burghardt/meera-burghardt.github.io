@@ -1,109 +1,109 @@
 year,area,gdp_per_head_gbp,index_1998
-1998,Scotland,0,100.0
-1999,Scotland,0,101.2
-2000,Scotland,0,105.1
-2001,Scotland,0,109.0
-2002,Scotland,0,110.6
-2003,Scotland,0,114.0
-2004,Scotland,0,117.5
-2005,Scotland,0,120.9
-2006,Scotland,0,124.1
-2007,Scotland,0,126.5
-2008,Scotland,0,127.3
-2009,Scotland,0,122.0
-2010,Scotland,0,122.2
-2011,Scotland,0,122.7
-2012,Scotland,0,124.2
-2013,Scotland,0,126.9
-2014,Scotland,0,130.2
-2015,Scotland,0,130.8
-2016,Scotland,0,130.6
-2017,Scotland,0,134.9
-2018,Scotland,0,135.3
-2019,Scotland,0,136.5
-2020,Scotland,0,121.1
-2021,Scotland,0,132.1
-2022,Scotland,0,136.7
-2023,Scotland,0,135.5
-2024,Scotland,0,136.1
-1998,Wales,0,100.0
-1999,Wales,0,101.6
-2000,Wales,0,105.5
-2001,Wales,0,108.1
-2002,Wales,0,109.8
-2003,Wales,0,113.3
-2004,Wales,0,115.7
-2005,Wales,0,116.6
-2006,Wales,0,119.4
-2007,Wales,0,120.3
-2008,Wales,0,117.3
-2009,Wales,0,113.4
-2010,Wales,0,114.5
-2011,Wales,0,116.3
-2012,Wales,0,118.0
-2013,Wales,0,120.0
-2014,Wales,0,121.5
-2015,Wales,0,124.4
-2016,Wales,0,126.9
-2017,Wales,0,129.6
-2018,Wales,0,133.0
-2019,Wales,0,134.9
-2020,Wales,0,120.0
-2021,Wales,0,127.8
-2022,Wales,0,133.4
-2023,Wales,0,133.4
-2024,Wales,0,133.2
-1998,Northern Ireland,0,100.0
-1999,Northern Ireland,0,103.6
-2000,Northern Ireland,0,109.8
-2001,Northern Ireland,0,112.8
-2002,Northern Ireland,0,113.2
-2003,Northern Ireland,0,117.8
-2004,Northern Ireland,0,119.7
-2005,Northern Ireland,0,123.1
-2006,Northern Ireland,0,125.3
-2007,Northern Ireland,0,124.4
-2008,Northern Ireland,0,120.0
-2009,Northern Ireland,0,113.7
-2010,Northern Ireland,0,112.0
-2011,Northern Ireland,0,113.1
-2012,Northern Ireland,0,114.2
-2013,Northern Ireland,0,114.8
-2014,Northern Ireland,0,115.7
-2015,Northern Ireland,0,117.0
-2016,Northern Ireland,0,120.9
-2017,Northern Ireland,0,123.0
-2018,Northern Ireland,0,123.1
-2019,Northern Ireland,0,125.3
-2020,Northern Ireland,0,111.2
-2021,Northern Ireland,0,124.8
-2022,Northern Ireland,0,129.8
-2023,Northern Ireland,0,131.1
-2024,Northern Ireland,0,131.6
-1998,England excl. London,0,100.0
-1999,England excl. London,0,102.8
-2000,England excl. London,0,106.4
-2001,England excl. London,0,109.2
-2002,England excl. London,0,111.0
-2003,England excl. London,0,113.9
-2004,England excl. London,0,115.8
-2005,England excl. London,0,117.6
-2006,England excl. London,0,119.4
-2007,England excl. London,0,120.8
-2008,England excl. London,0,120.3
-2009,England excl. London,0,114.4
-2010,England excl. London,0,116.4
-2011,England excl. London,0,116.4
-2012,England excl. London,0,117.6
-2013,England excl. London,0,118.7
-2014,England excl. London,0,121.3
-2015,England excl. London,0,123.4
-2016,England excl. London,0,124.3
-2017,England excl. London,0,127.6
-2018,England excl. London,0,128.8
-2019,England excl. London,0,129.9
-2020,England excl. London,0,117.7
-2021,England excl. London,0,127.6
-2022,England excl. London,0,131.5
-2023,England excl. London,0,130.3
-2024,England excl. London,0,130.3
+1998,Scotland,27908,100.0
+1999,Scotland,28234,101.2
+2000,Scotland,29319,105.1
+2001,Scotland,30433,109.0
+2002,Scotland,30861,110.6
+2003,Scotland,31827,114.0
+2004,Scotland,32784,117.5
+2005,Scotland,33748,120.9
+2006,Scotland,34638,124.1
+2007,Scotland,35311,126.5
+2008,Scotland,35520,127.3
+2009,Scotland,34058,122.0
+2010,Scotland,34097,122.2
+2011,Scotland,34240,122.7
+2012,Scotland,34652,124.2
+2013,Scotland,35406,126.9
+2014,Scotland,36328,130.2
+2015,Scotland,36501,130.8
+2016,Scotland,36451,130.6
+2017,Scotland,37647,134.9
+2018,Scotland,37768,135.3
+2019,Scotland,38089,136.5
+2020,Scotland,33796,121.1
+2021,Scotland,36860,132.1
+2022,Scotland,38158,136.7
+2023,Scotland,37813,135.5
+2024,Scotland,37993,136.1
+1998,Wales,22744,100.0
+1999,Wales,23110,101.6
+2000,Wales,23996,105.5
+2001,Wales,24596,108.1
+2002,Wales,24965,109.8
+2003,Wales,25765,113.3
+2004,Wales,26319,115.7
+2005,Wales,26517,116.6
+2006,Wales,27168,119.4
+2007,Wales,27367,120.3
+2008,Wales,26678,117.3
+2009,Wales,25781,113.4
+2010,Wales,26034,114.5
+2011,Wales,26463,116.3
+2012,Wales,26828,118.0
+2013,Wales,27300,120.0
+2014,Wales,27640,121.5
+2015,Wales,28287,124.4
+2016,Wales,28857,126.9
+2017,Wales,29475,129.6
+2018,Wales,30254,133.0
+2019,Wales,30678,134.9
+2020,Wales,27295,120.0
+2021,Wales,29072,127.8
+2022,Wales,30339,133.4
+2023,Wales,30340,133.4
+2024,Wales,30301,133.2
+1998,Northern Ireland,25717,100.0
+1999,Northern Ireland,26632,103.6
+2000,Northern Ireland,28245,109.8
+2001,Northern Ireland,29010,112.8
+2002,Northern Ireland,29121,113.2
+2003,Northern Ireland,30283,117.8
+2004,Northern Ireland,30774,119.7
+2005,Northern Ireland,31648,123.1
+2006,Northern Ireland,32215,125.3
+2007,Northern Ireland,32003,124.4
+2008,Northern Ireland,30860,120.0
+2009,Northern Ireland,29230,113.7
+2010,Northern Ireland,28816,112.0
+2011,Northern Ireland,29081,113.1
+2012,Northern Ireland,29366,114.2
+2013,Northern Ireland,29522,114.8
+2014,Northern Ireland,29766,115.7
+2015,Northern Ireland,30086,117.0
+2016,Northern Ireland,31103,120.9
+2017,Northern Ireland,31644,123.0
+2018,Northern Ireland,31661,123.1
+2019,Northern Ireland,32224,125.3
+2020,Northern Ireland,28599,111.2
+2021,Northern Ireland,32096,124.8
+2022,Northern Ireland,33394,129.8
+2023,Northern Ireland,33723,131.1
+2024,Northern Ireland,33839,131.6
+1998,England excl. London,27140,100.0
+1999,England excl. London,27897,102.8
+2000,England excl. London,28886,106.4
+2001,England excl. London,29645,109.2
+2002,England excl. London,30127,111.0
+2003,England excl. London,30912,113.9
+2004,England excl. London,31436,115.8
+2005,England excl. London,31923,117.6
+2006,England excl. London,32400,119.4
+2007,England excl. London,32791,120.8
+2008,England excl. London,32639,120.3
+2009,England excl. London,31060,114.4
+2010,England excl. London,31599,116.4
+2011,England excl. London,31596,116.4
+2012,England excl. London,31916,117.6
+2013,England excl. London,32223,118.7
+2014,England excl. London,32923,121.3
+2015,England excl. London,33504,123.4
+2016,England excl. London,33738,124.3
+2017,England excl. London,34632,127.6
+2018,England excl. London,34948,128.8
+2019,England excl. London,35263,129.9
+2020,England excl. London,31946,117.7
+2021,England excl. London,34618,127.6
+2022,England excl. London,35680,131.5
+2023,England excl. London,35367,130.3
+2024,England excl. London,35376,130.3
