@@ -245,10 +245,10 @@
     "font": "Inter, Helvetica Neue, Helvetica, Arial, sans-serif",
     "title": {
       "font": "Libre Caslon Text, Georgia, serif", 
-      "fontSize": 17, 
+      "fontSize": 18, 
       "fontWeight": 700, 
       "color": "#33302E", 
-      "subtitleFontSize": 13, 
+      "subtitleFontSize": 15, 
       "subtitleColor": "#66605C", 
       "subtitleFontWeight": "normal"},
     "axis": {

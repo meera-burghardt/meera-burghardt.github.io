@@ -11,7 +11,7 @@
   "data": {
     "url": "productivity_dumbbell.csv"
   },
-  "width": 460,
+  "width": 650,
   "height": {
     "step": 32
   },
@@ -392,16 +392,17 @@
       "top": 5,
       "bottom": 5
     },
-    "background": "transparent",
     "font": "Inter, Helvetica Neue, Helvetica, Arial, sans-serif",
     "title": {
-      "font": "Libre Caslon Text, Georgia, serif", 
-      "fontSize": 17, 
-      "fontWeight": 700, 
-      "color": "#33302E", 
-      "subtitleFontSize": 13, 
-      "subtitleColor": "#66605C", 
-      "subtitleFontWeight": "normal"},
+      "fontSize": 18,
+      "fontWeight": 700,
+      "color": "#33302E",
+      "subtitleFontSize": 15,
+      "subtitleColor": "#66605C",
+      "subtitleFontWeight": "normal",
+      "font": "Libre Caslon Text, Georgia, serif",
+      "subtitleFont": "Inter, Helvetica Neue, Helvetica, Arial, sans-serif"
+    },
     "axis": {
       "labelFontSize": 13,
       "titleFontSize": 13,
@@ -411,7 +412,8 @@
       "tickColor": "#999"
     },
     "legend": {
-      "labelFontSize": 13
+      "labelFontSize": 13,
+      "labelLimit": 320
     },
     "text": {
       "fontSize": 13

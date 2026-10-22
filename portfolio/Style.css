@@ -66,17 +66,24 @@ img {
 
 /* Charts sit on white cards */
 figure {
+  width: fit-content;
+  max-width: 100%;
   background: #fff;
   border-radius: 14px;
   padding: 16px;
-  margin: 24px 0;
+  margin: 24px auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   overflow-x: auto;
 }
 
+figure.vega-embed {
+  display: table;
+  margin: 24px auto;
+}
+
 /* Small grey source notes under each chart */
 figcaption {
-  font-size: 0.85em;
+  font-size: 0.9em;
   color: var(--muted);
   margin-top: 4px;
 }
