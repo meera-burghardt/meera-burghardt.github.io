@@ -87,3 +87,43 @@ figcaption {
   color: var(--muted);
   margin-top: 4px;
 }
+
+/* Two items side by side, equal-height cards */
+.side-by-side {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;          /* both cards end up the same height */
+  width: min(92vw, 1150px);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.side-by-side > div {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-by-side figure {
+  width: auto;
+  margin: 0;
+  flex: 1;
+}
+
+.side-by-side img {
+  width: 100%;
+  display: block;
+}
+
+/* Let the chart fill the card instead of using its fixed width */
+.side-by-side .vega-embed {
+  width: 100%;
+  display: block;
+}
+
+.side-by-side figcaption {
+  margin-top: 16px;
+}

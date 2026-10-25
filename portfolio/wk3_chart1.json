@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#fff1e5",
+  "width": "container",
+  "height": 202,
+  "autosize": {"type": "fit-x", "contains": "padding"},
+  "padding": {"left": 10, "right": 8, "top": 10, "bottom": 10},
+  "title": {
+    "text": "Returns were far from equal for Help to Buy borrowers",
+    "anchor": "start",
+    "frame": "bounds",
+    "font": "Inter, Helvetica Neue, Arial, sans-serif",
+    "fontSize": 14.25,
+    "fontWeight": 400,
+    "color": "#333333",
+    "offset": 68
+  },
+  "data": {
+    "values": [
+      {"band": "-80% to -15%", "series": "Equity loan of 20% or less of purchase price", "pct": 0.52},
+      {"band": "-80% to -15%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 3.08},
+      {"band": "-15% to -10%", "series": "Equity loan of 20% or less of purchase price", "pct": 0.01},
+      {"band": "-15% to -10%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 1.1},
+      {"band": "-10% to -5%", "series": "Equity loan of 20% or less of purchase price", "pct": 1.19},
+      {"band": "-10% to -5%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 30.12},
+      {"band": "-5% to 0%", "series": "Equity loan of 20% or less of purchase price", "pct": 9.25},
+      {"band": "-5% to 0%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 36.04},
+      {"band": "0% to 5%", "series": "Equity loan of 20% or less of purchase price", "pct": 21.83},
+      {"band": "0% to 5%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 24.56},
+      {"band": "5% to 10%", "series": "Equity loan of 20% or less of purchase price", "pct": 26.1},
+      {"band": "5% to 10%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 5},
+      {"band": "10% to 15%", "series": "Equity loan of 20% or less of purchase price", "pct": 19.59},
+      {"band": "10% to 15%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0.09},
+      {"band": "15% to 20%", "series": "Equity loan of 20% or less of purchase price", "pct": 10.15},
+      {"band": "15% to 20%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0},
+      {"band": "20% to 25%", "series": "Equity loan of 20% or less of purchase price", "pct": 5.52},
+      {"band": "20% to 25%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0},
+      {"band": "25% to 30%", "series": "Equity loan of 20% or less of purchase price", "pct": 2.83},
+      {"band": "25% to 30%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0},
+      {"band": "30% to 35%", "series": "Equity loan of 20% or less of purchase price", "pct": 1.9},
+      {"band": "30% to 35%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0},
+      {"band": "35% to 40%", "series": "Equity loan of 20% or less of purchase price", "pct": 0.84},
+      {"band": "35% to 40%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0},
+      {"band": "Over 40%", "series": "Equity loan of 20% or less of purchase price", "pct": 0.27},
+      {"band": "Over 40%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0}
+    ]
+  },
+  "mark": {"type": "bar", "stroke": "#66605c", "strokeWidth": 1},
+  "encoding": {
+    "y": {
+      "field": "band",
+      "type": "nominal",
+      "sort": null,
+      "title": "% return on equity loan",
+      "scale": {"paddingInner": 0.2, "paddingOuter": 0.1},
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "grid": false,
+        "labelFontSize": 9,
+        "labelFontWeight": 400,
+        "labelColor": "#4d4845",
+        "labelPadding": 8,
+        "titleFontSize": 10,
+        "titleFontWeight": 500,
+        "titleColor": "#66605C",
+        "titlePadding": 8
+      }
+    },
+    "yOffset": {
+      "field": "series",
+      "type": "nominal",
+      "sort": [
+        "Equity loan of 20% or less of purchase price",
+        "Equity loan of more than 20% of purchase price (London)"
+      ]
+    },
+    "x": {
+      "field": "pct",
+      "type": "quantitative",
+      "title": "% of loans repaid",
+      "scale": {"domain": [0, 40], "nice": false},
+      "axis": {
+        "values": [0, 5, 10, 15, 20, 25, 30, 35, 40],
+        "domain": false,
+        "grid": true,
+        "gridColor": "#ccc1b7",
+        "gridWidth": 1,
+        "tickColor": "#999189",
+        "tickSize": 5,
+        "labelFlush": false,
+        "labelFontSize": 9,
+        "labelFontWeight": 400,
+        "labelColor": "#4d4845",
+        "titleFontSize": 10,
+        "titleFontWeight": 500,
+        "titleColor": "#66605C",
+        "titlePadding": 12
+      }
+    },
+    "color": {
+      "field": "series",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Equity loan of 20% or less of purchase price",
+          "Equity loan of more than 20% of purchase price (London)"
+        ],
+        "range": ["#1e558c", "#94d2e6"]
+      },
+      "legend": {
+        "title": null,
+        "orient": "none",
+        "legendX": -86,
+        "legendY": -38,
+        "direction": "horizontal",
+        "symbolType": "M-1,-0.5L1,-0.5L1,0.5L-1,0.5Z",
+        "symbolSize": 190,
+        "symbolStrokeColor": "#66605c",
+        "symbolStrokeWidth": 1,
+        "labelFontSize": 9,
+        "labelFontWeight": 500,
+        "labelColor": "#333333",
+        "labelLimit": 500,
+        "columnPadding": 8
+      }
+    },
+    "tooltip": [
+      {"field": "band", "title": "Return band"},
+      {"field": "series", "title": "Loan type"},
+      {"field": "pct", "title": "% of loans repaid"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "font": "Inter, Helvetica Neue, Arial, sans-serif"
+  }
+}

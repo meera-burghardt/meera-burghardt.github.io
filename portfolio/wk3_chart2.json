@@ -1,0 +1,207 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Two bar charts side by side showing the share of repaid Help to Buy equity loans by percentage return, for loans of 20% or less of the purchase price and for London loans of over 20%. About 70% of the larger London loans were repaid at a loss, compared with about 11% of the other loans.",
+  "background": "#fff1e5",
+  "padding": {"left": 10, "right": 20, "top": 10, "bottom": 10},
+  "title": {
+    "text": [
+      "70% of larger London equity loans were repaid at a loss, compared with 11% of",
+      "other loans"
+    ],
+    "subtitle": "Share of repaid equity loans in each group (%)",
+    "anchor": "start",
+    "frame": "bounds",
+    "font": "Inter, Helvetica Neue, Arial, sans-serif",
+    "fontSize": 19.25,
+    "fontWeight": 400,
+    "lineHeight": 24,
+    "color": "#333333",
+    "subtitleFont": "Inter, Helvetica Neue, Arial, sans-serif",
+    "subtitleFontSize": 14.75,
+    "subtitleFontWeight": 400,
+    "subtitleLineHeight": 21,
+    "subtitleColor": "#7d746c",
+    "subtitlePadding": 8,
+    "offset": 20
+  },
+  "data": {
+    "values": [
+      {"band": "-80% to -15%", "series": "Equity loan of 20% or less of purchase price", "pct": 0.52},
+      {"band": "-80% to -15%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 3.08},
+      {"band": "-15% to -10%", "series": "Equity loan of 20% or less of purchase price", "pct": 0.01},
+      {"band": "-15% to -10%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 1.1},
+      {"band": "-10% to -5%", "series": "Equity loan of 20% or less of purchase price", "pct": 1.19},
+      {"band": "-10% to -5%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 30.12},
+      {"band": "-5% to 0%", "series": "Equity loan of 20% or less of purchase price", "pct": 9.25},
+      {"band": "-5% to 0%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 36.04},
+      {"band": "0% to 5%", "series": "Equity loan of 20% or less of purchase price", "pct": 21.83},
+      {"band": "0% to 5%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 24.56},
+      {"band": "5% to 10%", "series": "Equity loan of 20% or less of purchase price", "pct": 26.1},
+      {"band": "5% to 10%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 5},
+      {"band": "10% to 15%", "series": "Equity loan of 20% or less of purchase price", "pct": 19.59},
+      {"band": "10% to 15%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0.09},
+      {"band": "15% to 20%", "series": "Equity loan of 20% or less of purchase price", "pct": 10.15},
+      {"band": "15% to 20%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0},
+      {"band": "20% to 25%", "series": "Equity loan of 20% or less of purchase price", "pct": 5.52},
+      {"band": "20% to 25%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0},
+      {"band": "Over 25%", "series": "Equity loan of 20% or less of purchase price", "pct": 5.84},
+      {"band": "Over 25%", "series": "Equity loan of more than 20% of purchase price (London)", "pct": 0}
+    ]
+  },
+  "transform": [
+    {
+      "calculate": "datum.series == 'Equity loan of 20% or less of purchase price' ? 'Loan of 20% or less' : 'Loan of over 20% (London)'",
+      "as": "panel"
+    },
+    {
+      "calculate": "indexof(['-80% to -15%', '-15% to -10%', '-10% to -5%', '-5% to 0%'], datum.band) >= 0 ? 'Repaid at a loss' : 'Repaid at a gain'",
+      "as": "outcome"
+    },
+    {
+      "calculate": "datum.pct < 0.05 ? '<0.1%' : format(datum.pct, '.1f') + '%'",
+      "as": "lbl"
+    },
+    {"filter": "datum.pct > 0"}
+  ],
+  "facet": {
+    "column": {
+      "field": "panel",
+      "type": "nominal",
+      "sort": ["Loan of 20% or less", "Loan of over 20% (London)"],
+      "header": {
+        "title": null,
+        "labelOrient": "top",
+        "labelAnchor": "start",
+        "labelFontSize": 16,
+        "labelFontWeight": 400,
+        "labelColor": "#333333",
+        "labelPadding": 10
+      }
+    }
+  },
+  "spec": {
+    "width": 340,
+    "height": 250,
+    "layer": [
+      {
+        "mark": {"type": "bar"},
+        "encoding": {
+          "y": {
+            "field": "band",
+            "type": "nominal",
+            "sort": null,
+            "title": "Return on equity loan when repaid (%)",
+            "scale": {
+              "domain": ["-80% to -15%", "-15% to -10%", "-10% to -5%", "-5% to 0%", "0% to 5%", "5% to 10%", "10% to 15%", "15% to 20%", "20% to 25%", "Over 25%"],
+              "paddingInner": 0.25,
+              "paddingOuter": 0.1
+            },
+            "axis": {
+              "domain": false,
+              "ticks": false,
+              "grid": false,
+              "labelFontSize": 12.75,
+              "labelFontWeight": 400,
+              "labelColor": "#4d4845",
+              "labelPadding": 8,
+              "titleFontSize": 14,
+              "titleFontWeight": 500,
+              "titleColor": "#66605C",
+              "titlePadding": 16
+            }
+          },
+          "x": {
+            "field": "pct",
+            "type": "quantitative",
+            "title": null,
+            "scale": {"domain": [0, 44], "nice": false},
+            "axis": null
+          },
+          "color": {
+            "field": "outcome",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Repaid at a loss", "Repaid at a gain"],
+              "range": ["#c4574a", "#2f6a9c"]
+            },
+            "legend": null
+          },
+          "tooltip": [
+            {"field": "band", "title": "Return band"},
+            {"field": "panel", "title": "Loan group"},
+            {"field": "pct", "title": "% of repaid loans"}
+          ]
+        }
+      },
+      {
+        "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5, "fontSize": 11, "fontWeight": 500, "color": "#4d4845"},
+        "encoding": {
+          "y": {
+            "field": "band",
+            "type": "nominal",
+            "sort": null,
+            "title": "Return on equity loan when repaid (%)",
+            "scale": {
+              "domain": ["-80% to -15%", "-15% to -10%", "-10% to -5%", "-5% to 0%", "0% to 5%", "5% to 10%", "10% to 15%", "15% to 20%", "20% to 25%", "Over 25%"],
+              "paddingInner": 0.25,
+              "paddingOuter": 0.1
+            }
+          },
+          "x": {
+            "field": "pct",
+            "type": "quantitative",
+            "title": null,
+            "scale": {"domain": [0, 44], "nice": false},
+            "axis": null
+          },
+          "text": {"field": "lbl"}
+        }
+      },
+      {
+        "transform": [{"filter": "datum.band == '-5% to 0%' && datum.panel == 'Loan of over 20% (London)'"}],
+        "mark": {"type": "rect", "fill": "#fff8f1", "stroke": "#d9cbbf", "strokeWidth": 1, "cornerRadius": 3},
+        "encoding": {
+          "x": {"value": 0},
+          "x2": {"value": 302},
+          "y": {"value": 194},
+          "y2": {"value": 232}
+        }
+      },
+      {
+        "transform": [{"filter": "datum.band == '-5% to 0%' && datum.panel == 'Loan of over 20% (London)'"}],
+        "mark": {"type": "rect", "fill": "#c4574a"},
+        "encoding": {
+          "x": {"value": 14},
+          "x2": {"value": 30},
+          "y": {"value": 206},
+          "y2": {"value": 220}
+        }
+      },
+      {
+        "transform": [{"filter": "datum.band == '-5% to 0%' && datum.panel == 'Loan of over 20% (London)'"}],
+        "mark": {"type": "text", "text": "Repaid at a loss", "align": "left", "baseline": "middle", "fontSize": 13, "fontWeight": 500, "color": "#333333"},
+        "encoding": {"x": {"value": 40}, "y": {"value": 213}}
+      },
+      {
+        "transform": [{"filter": "datum.band == '-5% to 0%' && datum.panel == 'Loan of over 20% (London)'"}],
+        "mark": {"type": "rect", "fill": "#2f6a9c"},
+        "encoding": {
+          "x": {"value": 163},
+          "x2": {"value": 179},
+          "y": {"value": 206},
+          "y2": {"value": 220}
+        }
+      },
+      {
+        "transform": [{"filter": "datum.band == '-5% to 0%' && datum.panel == 'Loan of over 20% (London)'"}],
+        "mark": {"type": "text", "text": "Repaid at a gain", "align": "left", "baseline": "middle", "fontSize": 13, "fontWeight": 500, "color": "#333333"},
+        "encoding": {"x": {"value": 189}, "y": {"value": 213}}
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "font": "Inter, Helvetica Neue, Arial, sans-serif",
+    "facet": {"spacing": 32}
+  }
+}

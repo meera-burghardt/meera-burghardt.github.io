@@ -22,6 +22,11 @@
             display: flex;
         }
     </style>
+
+    <!-- Font used by the charts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +47,8 @@
             <h3>Inflation in 4 G7 Countries</h3>
         </div>
         <figure id="Location5"></figure>
-        <h3>CO2 Greenhouse Gas Emissions broken down by Food Type</h3>
+        <div class="chart-description">
+            <h3>CO2 Greenhouse Gas Emissions broken down by Food Type</h3>
         </div>
         <figure id="Location6"></figure>
     </section>
@@ -126,20 +132,74 @@
         </div>
     </section>
 
+    <!-- CC4: REPLICATION -->
+    <section>
+        <div class="chart-description">
+            <h2>CC4: Replication</h2>
+        </div>
+
+        <!-- The two items below sit side by side (needs the .side-by-side CSS in Style.css) -->
+        <div class="side-by-side">
+            <div class="chart-description">
+                <h3>Original: Financial Times</h3>
+                <!-- Save your screenshot in the same folder as index.html and make sure the file name matches below -->
+                <figure>
+                    <img src="ft_help_to_buy.png" alt="Financial Times bar chart: Returns were far from equal for Help to Buy borrowers">
+                    <figcaption>Source: Financial Times, using Homes England FOI data</figcaption>
+                </figure>
+            </div>
+
+            <div class="chart-description">
+                <h3>My replication in Vega-Lite</h3>
+                <figure>
+                    <div id="Location7"></div>
+                    <figcaption>Source: Homes England FOI</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="chart-description">
+             <h3>My improved version</h3>
+            <figure>
+                <div id="Location8"></div>
+                <figcaption>Source: Homes England FOI</figcaption>
+            </figure>
+            <p>
+                The previous chart was too busy and did not make the main takeaway clear enough. To fix this I 
+                separated the chart into two side by side charts and added the colored bars to make it clear
+                which loans were repaid at a loss and which were not. I also updated the title to make the 
+                takeaway more descriptive.
+            </p>
+        </div>
+    </section>
+
     <!-- One script at the bottom puts every chart on the page. -->
     <!-- Each line pairs an id from above with a spec file in the same folder as this page. -->
     <!-- .catch(console.error) makes any problem show up in the browser console (Cmd+Option+J). -->
     <script>
-        // Week 1
-        vegaEmbed('#Location5', 'wk1_chart3.json').catch(console.error);
-        vegaEmbed('#Location6', 'wk1_chart4.json').catch(console.error);
+        // Wait for the chart font to load before drawing any chart
+        Promise.all([
+            document.fonts.load('300 16px "Inter"'),
+            document.fonts.load('400 16px "Inter"'),
+            document.fonts.load('500 16px "Inter"'),
+            document.fonts.load('600 16px "Inter"')
+        ]).then(() => {
+            // CC1
+            vegaEmbed('#Location5', 'wk1_chart3.json').catch(console.error);
+            vegaEmbed('#Location6', 'wk1_chart4.json').catch(console.error);
 
-        document.fonts.ready.then(() => {
-        vegaEmbed('#Location1', 'wk1_chart1.json', {renderer: 'svg'}).catch(console.error);
-        vegaEmbed('#Location2', 'wk1_chart2.json', {renderer: 'svg'}).catch(console.error);
-        vegaEmbed('#Location3', 'wk2_chart1.json', {renderer: 'svg'}).catch(console.error);
-        vegaEmbed('#Location4', 'wk2_chart2.json', {renderer: 'svg'}).catch(console.error);
-    });
+            // CC2
+            vegaEmbed('#Location1', 'wk1_chart1.json', {renderer: 'svg'}).catch(console.error);
+            vegaEmbed('#Location2', 'wk1_chart2.json', {renderer: 'svg'}).catch(console.error);
+
+            // CC3
+            vegaEmbed('#Location3', 'wk2_chart1.json', {renderer: 'svg'}).catch(console.error);
+            vegaEmbed('#Location4', 'wk2_chart2.json', {renderer: 'svg'}).catch(console.error);
+
+            // CC4
+            vegaEmbed('#Location7', 'wk3_chart1.json', {renderer: 'svg', actions: false}).catch(console.error);
+            vegaEmbed('#Location8', 'wk3_chart2.json', {renderer: 'svg'}).catch(console.error);
+        });
     </script>
 
 </body>
