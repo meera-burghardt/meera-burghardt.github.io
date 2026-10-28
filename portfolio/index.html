@@ -173,6 +173,54 @@
         </div>
     </section>
 
+    <!-- API TASK -->
+    <section>
+        <div class="chart-description">
+            <h2>CC5: API</h2>
+        </div>
+        <figure>
+            <div id="Location9"></div>
+            <figcaption>Source: Department for Business and Trade Data API</figcaption>
+        </figure>
+        <div class="chart-description">
+            <h3>About the API</h3>
+        <!-- Write your description here (base url, elements needed, what is returned) -->
+            <p>
+                The base url is https://data.api.trade.gov.uk and the other elements needed in the API are the API version
+                (v1), the dataset id, the version of the dataset, the report id, the endpoint that returns the data, the
+                output format, the columns, and the query mode. No API key or login is required, and the final output is a 
+                csv not JSON. The final output has a header row, one row per quota period, and one column per field which 
+                in tidy format. 
+            </p>
+            <h3>API URL</h3>
+            <p class="api-url"><code>https://data.api.trade.gov.uk/v1/datasets/uk-trade-quotas/versions/v1.0.0/reports/quotas-including-current-volumes/data?format=csv&query-simple&_columns=quota__order_number&_columns=quota__geographical_areas&_columns=quota__measurement_unit&_columns=quota_definition__status&_columns=quota_definition__initial_volume&_columns=quota_definition__balance&_columns=quota_definition__validity_start_date&_columns=quota_definition__validity_end_date</code></p>
+        </div>
+    </section>
+
+    <!-- SCRAPING TASK -->
+    <section>
+        <div class="chart-description">
+            <h3>Scraping</h2>
+        </div>
+        <figure>
+            <div id="Location10"></div>
+            <figcaption>Source: IndexMundi (IMF and World Bank data)</figcaption>
+        </figure>
+        <div class="chart-description">
+            <p>
+                <a href="https://colab.research.google.com/drive/1wUFDSdGpzsKJ7rQb3qDbe8BgEGT5us2d?usp=sharing">
+                    Link to the Google Colab notebook</a>
+            </p>
+            <p>
+                I used IndexMundi's commodity price pages, which take monthly prices from the IMF and the World Bank
+                to scrape the monthly averages in prices for eight different commodities. I did this by looping over 
+                the pages with a pause in between requests, then cleaning dates an prices, rebasing each commodity,
+                and stacking everything into one final tidy chart. The main challenge I encountered was that all of 
+                the commodities were measured differently.
+            </p>
+        </div>
+    </section>
+
     <!-- One script at the bottom puts every chart on the page. -->
     <!-- Each line pairs an id from above with a spec file in the same folder as this page. -->
     <!-- .catch(console.error) makes any problem show up in the browser console (Cmd+Option+J). -->
@@ -199,6 +247,10 @@
             // CC4
             vegaEmbed('#Location7', 'wk3_chart1.json', {renderer: 'svg', actions: false}).catch(console.error);
             vegaEmbed('#Location8', 'wk3_chart2.json', {renderer: 'svg'}).catch(console.error);
+
+            // CC5
+            vegaEmbed('#Location9', 'wk4_chart1.json', {renderer: 'svg', actions: false}).catch(console.error);
+            vegaEmbed('#Location10', 'wk4_chart2.json', {renderer: 'svg', actions: false}).catch(console.error);
         });
     </script>
 

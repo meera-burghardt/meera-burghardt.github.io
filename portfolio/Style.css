@@ -127,3 +127,12 @@ figcaption {
 .side-by-side figcaption {
   margin-top: 16px;
 }
+
+.api-url {
+  overflow-wrap: anywhere;
+}
+
+.api-url code {
+  word-break: break-all;
+  font-size: 0.85em;
+}

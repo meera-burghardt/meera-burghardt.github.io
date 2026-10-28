@@ -1,0 +1,96 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#fff1e5",
+  "width": 520,
+  "height": 320,
+  "padding": {"left": 10, "right": 20, "top": 10, "bottom": 10},
+  "title": {
+    "text": "How much of each trade quota has been used?",
+    "anchor": "start",
+    "font": "Inter, Helvetica Neue, Arial, sans-serif",
+    "fontSize": 18,
+    "fontWeight": 400,
+    "color": "#333333",
+    "offset": 14
+  },
+  "data": {
+    "url": "https://data.api.trade.gov.uk/v1/datasets/uk-trade-quotas/versions/v1.0.0/reports/quotas-including-current-volumes/data?format=csv&query-simple&_columns=quota__order_number&_columns=quota__geographical_areas&_columns=quota__measurement_unit&_columns=quota_definition__status&_columns=quota_definition__initial_volume&_columns=quota_definition__balance&_columns=quota_definition__validity_start_date&_columns=quota_definition__validity_end_date",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": "datum.quota__measurement_unit == 'Kilogram (kg)' && datum.quota_definition__status != 'Future'"},
+    {"calculate": "toNumber(datum.quota_definition__initial_volume)", "as": "vol"},
+    {"calculate": "toNumber(datum.quota_definition__balance)", "as": "bal"},
+    {"filter": "isValid(datum.vol) && datum.vol > 0 && isValid(datum.bal)"},
+    {"calculate": "1 - datum.bal / datum.vol", "as": "used"},
+    {"filter": "datum.used >= 0 && datum.used <= 1"}
+  ],
+  "params": [
+    {
+      "name": "statusSel",
+      "select": {"type": "point", "fields": ["quota_definition__status"]},
+      "bind": "legend"
+    }
+  ],
+  "mark": {"type": "circle", "size": 70, "stroke": "#ffffff", "strokeWidth": 0.5, "clip": true},
+  "encoding": {
+    "x": {
+      "field": "vol",
+      "type": "quantitative",
+      "scale": {"type": "log"},
+      "title": "Size of quota (kg, log scale)",
+      "axis": {
+        "values": [100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000],
+        "format": "~s",
+        "gridColor": "#e6d6c9",
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": 500,
+        "titleColor": "#66605C",
+        "titlePadding": 10
+      }
+    },
+    "y": {
+      "field": "used",
+      "type": "quantitative",
+      "scale": {"domain": [-0.04, 1.04]},
+      "title": "Share of quota used",
+      "axis": {
+        "values": [0, 0.2, 0.4, 0.6, 0.8, 1],
+        "format": "%",
+        "gridColor": "#e6d6c9",
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": 500,
+        "titleColor": "#66605C"
+      }
+    },
+    "color": {
+      "field": "quota_definition__status",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": ["Open", "Critical", "Exhausted", "Closed"],
+        "range": ["#2f6a9c", "#c4574a", "#333333", "#b8a99a"]
+      },
+      "legend": {"orient": "top", "direction": "horizontal", "labelFontSize": 12, "symbolType": "circle", "symbolSize": 100}
+    },
+    "opacity": {
+      "condition": {"param": "statusSel", "value": 0.8},
+      "value": 0.08
+    },
+    "tooltip": [
+      {"field": "quota__order_number", "title": "Order number"},
+      {"field": "quota__geographical_areas", "title": "Area"},
+      {"field": "quota_definition__status", "title": "Status"},
+      {"field": "vol", "type": "quantitative", "title": "Initial volume (kg)", "format": ","},
+      {"field": "used", "type": "quantitative", "title": "Share used", "format": ".0%"},
+      {"field": "quota_definition__validity_start_date", "title": "Starts"},
+      {"field": "quota_definition__validity_end_date", "title": "Ends"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "font": "Inter, Helvetica Neue, Arial, sans-serif"
+  }
+}

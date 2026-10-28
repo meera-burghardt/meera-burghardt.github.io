@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#fff1e5",
+  "width": 520,
+  "height": 320,
+  "padding": {"left": 10, "right": 20, "top": 10, "bottom": 10},
+  "title": {"text": ["Metals lead commodity growth, peaking in 2026 and reaching over", "four times 2016 levels"], "anchor": "start", "font": "Inter, Helvetica Neue, Arial, sans-serif", "fontSize": 18, "fontWeight": 400, "color": "#333333", "offset": 14},
+  "data": {"url": "tidy_commodities.csv"},
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeDash": [4, 4], "color": "#66605C", "strokeWidth": 1},
+      "encoding": {
+        "y": {"datum": 100, "type": "quantitative", "title": "YOUR AXIS TITLE"}
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "sel",
+          "select": {"type": "point", "fields": ["commodity"]},
+          "bind": "legend",
+          "value": [{"commodity": "Gold"}, {"commodity": "Silver"}, {"commodity": "Copper"}]
+        }
+      ],
+      "mark": {"type": "line", "strokeWidth": 2.5},
+      "encoding": {
+        "x": {"field": "date", "type": "temporal", "title": null, "axis": {"format": "%Y", "gridColor": "#e6d6c9"}},
+        "y": {"field": "index_100", "type": "quantitative", "title": "YOUR AXIS TITLE", "axis": {"gridColor": "#e6d6c9"}},
+        "color": {
+          "field": "commodity",
+          "type": "nominal",
+          "title": null,
+          "legend": {"orient": "top", "direction": "horizontal", "labelFontSize": 12, "columns": 4}
+        },
+        "opacity": {"condition": {"param": "sel", "value": 1}, "value": 0.12},
+        "tooltip": [
+          {"field": "commodity", "title": "Commodity"},
+          {"field": "date", "type": "temporal", "title": "Month", "format": "%b %Y"},
+          {"field": "price", "type": "quantitative", "title": "Price", "format": ",.2f"},
+          {"field": "unit", "title": "Unit"},
+          {"field": "index_100", "type": "quantitative", "title": "Index (start = 100)"}
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}, "font": "Inter, Helvetica Neue, Arial, sans-serif"}
+}
